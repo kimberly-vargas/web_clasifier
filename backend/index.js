@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const scrapers = require('./scrapers');
+const bayes = require('./bayes');
 const app = express()
 
 const port = 3001
@@ -9,18 +10,18 @@ app.use(express.json())
 
 let scrapedData = []
 
-// respond with "hello world" when a GET request is made to the homepage
 app.get('/urls', (req, res) => {
-    //Obtener de la BD las urls para el scraping
-    res.json(JSON.stringify(scrapedData))
+    //Carga en el backend la lista de cada web con sus clasificaciones
+    res.json(scrapedData)
 })
 
-
 app.post('/urls', async (req, res) => {
-    //3 hacer el scraping y escribir los datos en una BD
-    const data = await scrapers.scrapeUrl()
-    //console.log(data)
-    scrapedData = data
+    //Hacer el scraping y guardar los datos
+    const data = await scrapers.scrapeUrl(req.body)
+    //Ejecutar Bayes
+    console.log('bayes')
+    const urlsClasificadas = await bayes.obtenerProbTotales(data)
+    scrapedData = urlsClasificadas
     res.json('succes')
 }) 
 

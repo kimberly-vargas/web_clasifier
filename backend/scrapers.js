@@ -1,58 +1,32 @@
-const puppeteer = require('puppeteer')
 const {Worker} = require('worker_threads')
 const os = require('os')
 const _ = require('lodash');
-const { nextTick } = require('process');
-//const worker = new Worker('./worker.js')
-
-let urls =['https://www.thewhitecompany.com',
-    'https://www.clothingshoponline.com',
-    'https://www.nordstrom.com/browse/women/clothing',
-    'https://www.asos.com/us',
-    'https://www.showpo.com',
-    'https://www.prettylittlething.us',
-    'https://thevou.com/fashion/online',
-    'https://www.thrifted.com',
-    'https://www.shopjustice.com',
-    'https://japanese-clothing.com',
-    'https://gothicy.com',
-    'https://www.dealbyethan.com',
-    'https://www.made-in-china.com/Supplier/Manufacturer',
-    'https://www.thewhitecompany.com',
-    'https://www.thewhitecompany.com',
-    'https://www.clothingshoponline.com',
-    'https://www.nordstrom.com/browse/women/clothing',
-    'https://www.asos.com/us',
-    'https://www.showpo.com',
-    'https://www.prettylittlething.us',
-    'https://thevou.com/fashion/online',
-    'https://www.thrifted.com',
-    'https://www.shopjustice.com',
-    'https://japanese-clothing.com',
-    'https://gothicy.com',
-    'https://www.dealbyethan.com',
-    'https://www.made-in-china.com/Supplier/Manufacturer',
-    'https://www.thewhitecompany.com',
-    'https://www.thewhitecompany.com'];
 
 
-const scrapeUrl = async () => {
+const scrapeUrl = async (urls) => { 
     var datos = []
+
+    //Se dividen las urls para enviar chunks de tamaños iguales a cada cpu del ordenador
     const cpus = os.cpus().length - 1
-    
     let chunckedTasks = _.chunk(urls, Math.ceil(urls.length/cpus))
 
+    //Primer nivel de concurrencia: se crean los hijos y se ejecutan de forma paralela
     chunckedTasks = chunckedTasks.map((chunk) => new Promise((resolve, reject) => {
-        console.log(chunk)
-        const worker = new Worker('./worker.js')
-        worker.postMessage(chunk)
-        worker.on('message', result => {
-            datos = [...datos, ...result]
-            resolve()
-        })
+        try{
+            const worker = new Worker('./worker.js')
+            worker.postMessage(chunk)
+            worker.on('message', result => {
+                datos = [...datos, ...result]
+                resolve()
+            })
+        } catch {
+            console.log(Error)
+            reject()
+        }
     }))
 
     await Promise.all(chunckedTasks)
+    console.log('Scraping listo!')
     return datos
 }
 
