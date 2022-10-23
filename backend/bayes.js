@@ -3,6 +3,10 @@ let palabrasC2 = []
 let cantPalabrasC1 = 0
 let cantPalabrasC2 = 0
 let totalPalabras = 0
+let incidenciasC1 = 0
+let incidenciasC2 = 0
+let categoriaFinal = ""
+let incidenciaFinal = 0
 
 function obtenerPalabrasC1() {
     return new Promise(async resolve => {
@@ -31,8 +35,8 @@ async function cargarDatos() {
 
 
 const calcCantPalabrasXCat = (palabrasUrl) => {
-    let incidenciasC1 = 0
-    let incidenciasC2 = 0
+    incidenciasC1 = 0
+    incidenciasC2 = 0
     const datasetBloqueo = ['cannot access', 'denied', 'unusual activity']
 
     for (let p in palabrasUrl){
@@ -80,8 +84,17 @@ const obtenerProbTotales = async (scrapedData) => {
         //ProbabilidadTotal
         const probTotalC1 = probPrevCat1 * probInCat1
         const probTotalC2 = probPrevCat2 * probInCat2
-
-        scrapedData[index] = {...scrapedData[index], probTotalC1: probTotalC1, probTotalC2: probTotalC2, bloqueo: bloqueo}
+        
+        if (bloqueo) {
+            scrapedData[index] = {...scrapedData[index], categoria: "Sin categoría", probTotal: 0, bloqueo: bloqueo, incidencia: 0}
+        }else{
+            if(probTotalC1 > probTotalC2){ //ropa
+                scrapedData[index] = {...scrapedData[index], categoria: "Clothes", probTotal: probTotalC1, bloqueo: bloqueo, incidencia: incidenciasC1}
+            }
+            else{//tech
+                scrapedData[index] = {...scrapedData[index], categoria: "Tech", probTotal: probTotalC2, bloqueo: bloqueo, incidencia: incidenciasC2}
+            }
+        }
     })
 
     return scrapedData

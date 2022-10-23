@@ -1,4 +1,3 @@
-import './App.css';
 import {ShowData} from './components/ShowData'
 
 function App() {

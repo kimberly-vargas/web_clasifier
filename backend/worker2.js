@@ -10,8 +10,9 @@ const scrapeUrl = async (url) => {
     
     console.log('entro al scrapeUrl')
 
-    const tags = ['a', 'p', 'h1', 'h2', 'h3']
+    const tags = ['a', 'p', 'h1', 'h2', 'h3', 'title']
     let palabras = []
+    let titulo = ''
 
     for (let i in tags){
         try {
@@ -20,11 +21,11 @@ const scrapeUrl = async (url) => {
             continue
         }
         const palabrasEncontradas = await page.$$eval(tags[i], el => el.map(item => item.textContent.trim()))
-        palabras = [...palabras, ...palabrasEncontradas]
+        tags[i] !== 'title' ? palabras = [...palabras, ...palabrasEncontradas] : titulo = palabrasEncontradas
     }
 
     browser.close()
-    return palabras
+    return [titulo, palabras]
 }
 
 const scrapedData = async (chunk) => {
@@ -32,9 +33,11 @@ const scrapedData = async (chunk) => {
     let scrapedText = []
     urls = chunk
     for (let i in urls){
+        const data = await scrapeUrl(urls[i])
         const palabras = {
             url: urls[i],
-            palabras: await scrapeUrl(urls[i])
+            palabras: data[1],
+            tituo: data[0][0]
         }
         scrapedText.push(palabras)
     }
