@@ -11,7 +11,6 @@ app.use(express.json())
 let urls =[
     'https://www.bestbuy.com',
     'https://store.epicgames.com',
-    'https://store.epicgames.com',
     'https://rubysrasoi.com.au',
     'https://play.google.com',
     'https://www.gamestop.com',

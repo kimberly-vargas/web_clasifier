@@ -1,28 +1,28 @@
 import { Container, Grid } from '@mui/material'
 import React from 'react'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { ShowInfo } from './ShowInfo';
+import { ShowInfoTech } from './ShowInfoTech';
 
+const TopUrls = ({ top, bandera }) => {
 
-const TopUrls = ({ top }) => {
-  const clothes = top.filter(el => el.categoria === "Clothes").sort((a, b) => b.incidencia - a.incidencia).slice(0, 5)
-  const tech = top.filter(el => el.categoria === "Tech").sort((a, b) => b.incidencia - a.incidencia).slice(0, 5)
+  const clothes = (!bandera)? top.filter(el => el.categoria === "Clothes").sort((a, b) => b.incidencia - a.incidencia).slice(0, 5):top.filter(el => el.categoria === "Clothes").sort((a, b) => b.incidencia - a.incidencia)
+  const tech = (!bandera)? top.filter(el => el.categoria === "Tech").sort((a, b) => b.incidencia - a.incidencia).slice(0, 5) : top.filter(el => el.categoria === "Tech").sort((a, b) => b.incidencia - a.incidencia)
   return (
     <div style={{
       textAlign: "center",
       display: "flex",
       justifyContent: "space-around",
-      alignItems: "center",
+      alignItems: "start",
       marginBottom: "100px"
-  }}>
+    }}>
       <Container style={{ width: "40%", marginTop: "5%" }}>
-        <h1>Top 5 Páginas de vestimenta</h1>
+        <h1>{!bandera?"Top 5 Páginas de vestimenta":"Páginas de vestimenta"}</h1>
         <Grid>
           {clothes.map((item, index) =>
-            <Card key={index} style={{ marginTop: "5%" }}>
+            <Card key={index} style={{ marginTop: "5%", height: "250px", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <CardContent>
                 <Typography sx={{ fontSize: 17 }} style={{ fontWeight: "bold" }} color="text.secondary" gutterBottom>
                   {index + 1}. {item.tituo}
@@ -40,22 +40,22 @@ const TopUrls = ({ top }) => {
                   Incidencia: {item.incidencia}
                   <br />
                 </Typography>
-
+                <div style={{ marginTop: '15px' }}>
+                  <ShowInfo item={item} />
+                </div>
               </CardContent>
-              <CardActions>
-                <Button href={item.url} size="small">Ir al sitio</Button>
-              </CardActions>
+
             </Card>
 
           )}
         </Grid>
-        </Container>
+      </Container>
 
       <Container style={{ width: "40%", marginTop: "5%" }}>
-        <h1>Top 5 Páginas de tecnología</h1>
+        <h1>{!bandera?"Top 5 Páginas de tecnología":"Páginas de tecnología"}</h1>
         <Grid>
           {tech.map((item, index) =>
-            <Card key={index} style={{ marginTop: "5%" }}>
+            <Card key={index} style={{ marginTop: "5%", height: "250px", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <CardContent>
                 <Typography sx={{ fontSize: 17 }} style={{ fontWeight: "bold" }} color="text.secondary" gutterBottom>
                   {index + 1}. {item.tituo}
@@ -73,18 +73,18 @@ const TopUrls = ({ top }) => {
                   Incidencia: {item.incidencia}
                   <br />
                 </Typography>
+                <div style={{ marginTop: '15px' }}>
+                  <ShowInfoTech item={item} />
+                </div>
 
               </CardContent>
-              <CardActions>
-                <Button href={item.url} size="small">Ir al sitio</Button>
-              </CardActions>
-            </Card>
 
+            </Card>
           )}
         </Grid>
-        </Container>
-        </div>
-        )
+      </Container>
+    </div>
+  )
 }
 
-        export {TopUrls}
+export { TopUrls }

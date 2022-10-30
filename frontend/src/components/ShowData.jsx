@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { PieChart, Pie, Tooltip, BarChart, XAxis, YAxis, Legend, CartesianGrid, Bar } from 'recharts';
-import {TopUrls} from "./TopUrls"
+import { TopUrls } from "./TopUrls"
+import Button from '@mui/material/Button';
+
 
 const ShowData = () => {
     const [data, setData] = useState([])
     const [top, setTop] = useState([])
-
-    //C1 Ropa
-    //C2 Tech
+    const [bandera, setBandera] = useState(false)
 
     const peticion = async () => {
         const res = await fetch(`http://localhost:3001/urls`)
         const datos = await res.json()
         setData([{ name: "Bloqueos", cantidad: datos.filter(el => el.bloqueo).length },
         { name: "Vestimenta", cantidad: datos.filter(el => el.categoria === "Clothes").length },
-        { name: "Tecnología", cantidad: datos.filter(el => el.categoria === "Tech").length }])
+        { name: "Tecnología", cantidad: datos.filter(el => el.categoria === "Tech").length },
+        { name: "Sin categoría", cantidad: datos.filter(el => el.categoria === "Sin categoría").length }])
         setTop(datos)
+        console.log(datos[0].concidencias)
     }
 
     //Al cargar la app se ejecuta automaticamente el scraping
@@ -31,7 +33,7 @@ const ShowData = () => {
 
     return (
         <div>
-            <h1 style={{textAlign: "center"}}>Gráficas</h1>
+            <h1 style={{ textAlign: "center" }}>Gráficas</h1>
             <div style={{
                 textAlign: "center",
                 display: "flex",
@@ -44,7 +46,7 @@ const ShowData = () => {
                         data={data}
                         cx={200}
                         cy={200}
-                        outerRadius={80}
+                        outerRadius={130}
                         fill="#8884d8"
                         label
                     />
@@ -73,8 +75,14 @@ const ShowData = () => {
                 </BarChart>
 
             </div>
-            <h1 style={{textAlign: "center"}}>Páginas con los mejores resultados</h1>
-            <TopUrls top={top}/>
+            <h1 style={{ textAlign: "center" }}>Páginas con los mejores resultados</h1>
+            <TopUrls top={top} bandera={bandera}/>
+
+
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px"}}>
+            <Button onClick={()=>setBandera(!bandera)} variant="outlined">{!bandera?"Mostrar todos los resultados":"Mostrar Top 5"}</Button>
+            </div>
+            
         </div>
     )
 }
