@@ -79,7 +79,7 @@ src
 
   Inicio Backend              |   Fin Backend     |
 :-------------------------:|:-------------------------:|
-![](https://user-images.githubusercontent.com/84600029/199262705-654b1a52-87c9-4496-8ec2-1e39dd548269.PNG?raw=true)|![](https://user-images.githubusercontent.com/84600029/193423393-3742bbd1-e2f9-4bfe-8a5e-98ac37457b4a.PNG?raw=true)|!
+![](https://user-images.githubusercontent.com/84600029/199262705-654b1a52-87c9-4496-8ec2-1e39dd548269.PNG?raw=true)|![](https://user-images.githubusercontent.com/84600029/199268834-15511b9a-6ee5-436f-8268-63d8170a098d.PNG?raw=true)|!
 
 
 
