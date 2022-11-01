@@ -1,7 +1,7 @@
 ## `Web Scraping - JavaScript`
 
 <p align="center">
-  <a href="https://github.com/jonathan20dev/"><img src="https://user-images.githubusercontent.com/84600029/199262314-639c0487-0cf5-486d-8462-328684355020.png" alt="react native chat" width="50%" /></a>
+  <a href="https://github.com/jonathan20dev/"><img src="https://user-images.githubusercontent.com/84600029/199349079-c97ab255-098e-4ef9-af5c-a54a29690bff.png" alt="react native chat" width="50%" /></a>
 </p>
 
 
