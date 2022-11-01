@@ -79,18 +79,27 @@ usando hilos, haciéndolo más rápido y eficiente.
   segundo worker para que cree un sub-hilo por cada sub-chunk
   y ejecute en hilos aparte el scraping de la web.
 
+```
 
-BAYES
-El teorema de Bayes expresa la probabilidad de que ocurra 
-un suceso A, teniendo en cuenta la información de otro
-suceso ocurrido B. Este es súper útil para realizar
-clasificaciones con mayor índice de confianza
+## Bayes
+```
+El teorema de Bayes expresa la probabilidad de que ocurra un suceso A, teniendo en cuenta la información de otro
+suceso ocurrido B. Este es súper útil para realizar clasificaciones con mayor índice de confianza
 puesto que nos da una probabilidad condicionada. 
 
 ¿Cómo se aplicó?
 Este bayes se aplica para 2 categorías:
 Tecnología: 302 palabras
 Ropa: 182
+
+- Se obtienen todas las palabras de la categoria 1 y 2
+- Se calcula la probabilidad previa para cada categoria: cantidad de palabras en una categoria / total de palabras de esa categoria
+- Se calcula la cantidad de incidencias por categoria: recorre toda la lista de palabras encontradas en una url y se obtienen
+  la cantidad de incidencias para cada categoria
+- Se calcula la probabilidad de las incidencias: cantidad de incidencias en una categoria / total de palabras de esa categoria 
+- Se calcula la probabilidad total por categoria: probabilidad previa de una categoria * probalidad de incidencias de esa categoria
+
+Para dar un resultado se comparan ambas categorias y se escoge la que tenga una probabilidad mayor
 
 ```
 
