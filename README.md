@@ -85,6 +85,6 @@ src
 
 ## Authors 👍✨
 
-| <img src="https://media-exp1.licdn.com/dms/image/C5603AQFIcEFL-NSfqA/profile-displayphoto-shrink_800_800/0/1627255607401?e=1669852800&v=beta&t=voVrrkA8xxrczDIkoYV21BwMfLU3z4yRKtKf17SBVZs" alt="react native chat" width="200px" />  | <img src="https://media-exp1.licdn.com/dms/image/D4E35AQFSR6tlHszb7A/profile-framedphoto-shrink_200_200/0/1663436772487?e=1665108000&v=beta&t=zEFR8hum6XrX9JLPPXNgfGYesY49fqk9B4YXUspcyQc" alt="react native chat" width="200px" />  | <img src="https://media-exp1.licdn.com/dms/image/D4E35AQFSR6tlHszb7A/profile-framedphoto-shrink_200_200/0/1663436772487?e=1665108000&v=beta&t=zEFR8hum6XrX9JLPPXNgfGYesY49fqk9B4YXUspcyQc" alt="react native chat" width="200px" />  |
+| <img src="https://media-exp1.licdn.com/dms/image/C5603AQFIcEFL-NSfqA/profile-displayphoto-shrink_800_800/0/1627255607401?e=1669852800&v=beta&t=voVrrkA8xxrczDIkoYV21BwMfLU3z4yRKtKf17SBVZs" alt="Kimberly" width="200px" />  | <img src="https://user-images.githubusercontent.com/84600029/199269624-de90536f-a670-4aeb-bbd0-fed53c007497.png" alt="Jonathan" width="200px" />  | <img src="https://media-exp1.licdn.com/dms/image/D4D35AQE_BKqRDHxSBg/profile-framedphoto-shrink_400_400/0/1633406292921?e=1667923200&v=beta&t=y2rgAINXgJGyerwizvXQqJ5lvgNSDJ_WGoFpSEU5pDo" alt="Johan" width="200px" />  |
 | :------------: | :------------: | :------------: |
 |  *Kimberly Vargas* | *Jonathan Mendoza*  | *Jonathan Mendoza*  |
