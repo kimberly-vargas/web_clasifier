@@ -4,7 +4,13 @@
   <a href="https://github.com/jonathan20dev/"><img src="https://user-images.githubusercontent.com/84600029/199262314-639c0487-0cf5-486d-8462-328684355020.png" alt="react native chat" width="50%" /></a>
 </p>
 
-***Aplicación creada para el curso de Sistemas Operativos - TEC ***
+
+=========== Descripcion del proyecto ===========
+
+Aplicación creada para el curso de Sistemas Operativos - TEC
+
+Esta aplicación es un clasificador de páginas web basado en el teorema de Bayes
+
 
 > 
 > **Kimberly** Vargas, **Jonathan** Mendoza y **Johan** Zamora
@@ -39,28 +45,52 @@ Los resultados se muestran con gráficas
 
 ## Backend
 ```
-src
-└───src/Components
-    │───About us
-    |    └──About.jsx
-    │───Auth
-    │    │──Login.jsx    [Firebase🔥]
-    |    └──Register.jsx [Firebase🔥]
-    │───Cart
-    |    │──CartProduct.jsx
-    |    │──CurrentCart.jsx
-    |    └──UserHistorty.jsx
-    │───Contact
-    |    └──Contact.jsx
-    │───Home
-    |    │──CarouselBanner.jsx
-    |    └──Home.jsx
-    │───Products
-    |    │──ProductDetails.jsx
-    |    │──ProductCard.jsx
-    |    └──Products.jsx
-    └───User
-         └──Profile.jsx
+WEB SCRAPING
+Se utilizó puppeteer, esta es una librería de node que 
+utiliza Chrome Devtools Protocol (CDP), esta es una API
+que permite gestionar instancias de los navegadores 
+Chrome mediante connecciones con sockets
+
+- Se toma una url
+- Se abre una instancia de un browser
+- Se abre una instancia de una página en ese browser
+- Se dirige la página hacia la url
+- Se espera por los selectores
+- Se obtienen los elementos de html de esos selectores
+- Se extrae el contenido de texto en esos elementos
+
+
+MULTICORE
+Se utilizaron los worker threads, esta es una característica
+de Node, que permite correr código de javascript en paralelo
+usando hilos, haciéndolo más rápido y eficiente.
+
+¿Cómo se aplicó?
+- Se dividen de forma equitativa las urls entre la cantidad 
+  de CPUs -1 (-1 porque el 1 está reservado para el hilo 
+  principal de javascript)
+
+- Primer nivel de concurrencia: se envía un mensaje a un 
+  worker para que cree un hilo por cada chunk y este los 
+  ejecuta de forma paralela
+  
+- Segundo nivel de concurrencia: en cada hilo se divide el
+  chunk asignado en tres partes y manda un mensaje a un
+  segundo worker para que cree un sub-hilo por cada sub-chunk
+  y ejecute en hilos aparte el scraping de la web.
+
+
+BAYES
+El teorema de Bayes expresa la probabilidad de que ocurra 
+un suceso A, teniendo en cuenta la información de otro
+suceso ocurrido B. Este es súper útil para realizar
+clasificaciones con mayor índice de confianza
+puesto que nos da una probabilidad condicionada. 
+
+¿Cómo se aplicó?
+Este bayes se aplica para 2 categorías:
+Tecnología: 302 palabras
+Ropa: 182
 
 ```
 
