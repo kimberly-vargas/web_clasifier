@@ -4,10 +4,10 @@
   <a href="https://github.com/jonathan20dev/"><img src="https://user-images.githubusercontent.com/84600029/199262314-639c0487-0cf5-486d-8462-328684355020.png" alt="react native chat" width="50%" /></a>
 </p>
 
-***Application created as part of a course***: by
+***Aplicación creada para el curso de Sistemas Operativos - TEC ***
 
-
-> **Kimberly** Vargas, **Jonathan** Mendoza && **Johan** Zamora
+> 
+> **Kimberly** Vargas, **Jonathan** Mendoza y **Johan** Zamora
 
 <img align="right" src="https://user-images.githubusercontent.com/84600029/199262467-30e51cfd-6a10-484a-b30a-0bf3d34ab6fd.png?auto=format,enhance" width="30%" />
 
@@ -65,7 +65,7 @@ src
 ```
 
 
-## App Screenshots
+## Screenshots de la app
 
   Gráficos                 |   Top 5 páginas        |
 :-------------------------:|:-------------------------:|
@@ -82,8 +82,26 @@ src
 ![](https://user-images.githubusercontent.com/84600029/199262705-654b1a52-87c9-4496-8ec2-1e39dd548269.PNG?raw=true)|![](https://user-images.githubusercontent.com/84600029/199268834-15511b9a-6ee5-436f-8268-63d8170a098d.PNG?raw=true)|!
 
 
+## Instalación
 
-## Authors 👍✨
+### Clonar el repositorio
+
+`git clone https://github.com/kimberly-vargas/web_clasifier.git`
+
+### Correr Backend
+
+`src [web_clasifier\backend]> npm i`
+
+`src [web_clasifier\backend]> node index`
+
+### Correr Frontend
+
+`<src [web_clasifier\frontend]> npm i`
+
+`<src [web_clasifier\frontend]> npm start`
+
+
+## Autores 👍✨
 
 | <img src="https://media-exp1.licdn.com/dms/image/C5603AQFIcEFL-NSfqA/profile-displayphoto-shrink_800_800/0/1627255607401?e=1669852800&v=beta&t=voVrrkA8xxrczDIkoYV21BwMfLU3z4yRKtKf17SBVZs" alt="Kimberly" width="200px" />  | <img src="https://avatars.githubusercontent.com/u/84600029?v=4" alt="Jonathan" width="200px" />  | <img src="https://media-exp1.licdn.com/dms/image/D4D35AQE_BKqRDHxSBg/profile-framedphoto-shrink_400_400/0/1633406292921?e=1667923200&v=beta&t=y2rgAINXgJGyerwizvXQqJ5lvgNSDJ_WGoFpSEU5pDo" alt="Johan" width="200px" />  |
 | :------------: | :------------: | :------------: |
