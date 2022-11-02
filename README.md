@@ -1,10 +1,11 @@
 ## `Web Scraping - JavaScript`
 
 <p align="center">
-  <a href="https://github.com/jonathan20dev/"><img src="https://user-images.githubusercontent.com/84600029/199349079-c97ab255-098e-4ef9-af5c-a54a29690bff.png" alt="react native chat" width="50%" /></a>
+  <a href="https://github.com/jonathan20dev/"><img src="https://user-images.githubusercontent.com/61482376/199384913-f2f8fa29-a289-4109-96bb-7022e1d76243.png" alt="react native chat" width="50%" /></a>
 </p>
 
 </br>
+
 =========== Descripcion del proyecto ===========
 
 Aplicación creada para el curso de Sistemas Operativos - TEC
@@ -14,6 +15,8 @@ Esta aplicación es un clasificador de páginas web basado en el teorema de Baye
 
 > 
 > **Kimberly** Vargas, **Jonathan** Mendoza y **Johan** Zamora
+
+</br>
 
 <img align="right" src="https://user-images.githubusercontent.com/84600029/199262467-30e51cfd-6a10-484a-b30a-0bf3d34ab6fd.png?auto=format,enhance" width="30%"/>
 
